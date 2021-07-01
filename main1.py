@@ -9,6 +9,11 @@ import gunicorn
 
 app = Flask(__name__)
 
+@app.route('/', methods=['get'])
+
+def root():
+    return "Hello World"
+
 '''
 def print_plot(index):
     example = df[df.index == index][['Comments', 'sentiment']].values[0]
