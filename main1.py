@@ -9,7 +9,7 @@ import gunicorn
 
 app = Flask(__name__)
 
-@app.route('/', methods=['get'])
+@app.route('/', methods=['GET'])
 
 def root():
     return "Hello World"
@@ -112,9 +112,9 @@ def leadactivitysentiment():
         
         
     except:
-        return('Error')    
+        return('Error1')    
 
-
+'''
 if __name__ == '__main__':
     try:
         port = int(sys.argv[1]) 
@@ -122,3 +122,6 @@ if __name__ == '__main__':
         port = 3000
 
 app.run(port=port, debug=True)  
+'''
+if __name__ == '__main__':
+    app.run(host="localhost", port=3000, debug=True)
