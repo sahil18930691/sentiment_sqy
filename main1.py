@@ -42,7 +42,7 @@ def clean_text(text):
     return text
 
 
-loaded_model = joblib.load("model_10k_data.sav")
+loaded_model = joblib.load("model_29july2021latest1.sav")
 
 
 '''
@@ -87,8 +87,8 @@ df1["sentiment1"].replace({"positive": "1", "negative": "2","other": "3", "neutr
 print(df1.head())
 
 '''
-@app.route('/leadactivitysentiment', methods=['POST'])
 
+@app.route('/leadactivitysentiment', methods=['POST'])
 
 def leadactivitysentiment():
     try:
@@ -105,7 +105,7 @@ def leadactivitysentiment():
         test = test.dropna()
         test['sentiment1']=test["sentiment"]
         test["sentiment1"].replace({"positive": "1", "negative": "2","other": "3", "neutral": "4"}, inplace=True)
-        test = test[['RecNo','Comments','sentiment','sentiment1']]
+        test = test[['RecNo','LeadID','Assignedto','LeadStatus','Comments','sentiment','sentiment1']]
         orient="records"
         result = test.to_json(orient = orient)
         return(result)
