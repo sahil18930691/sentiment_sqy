@@ -9,7 +9,7 @@ import gunicorn
 
 app = Flask(__name__)
 
-@app.route('/', methods=['get'])
+@app.route('/', methods=['GET'])
 
 def root():
     return "Hello World"
@@ -42,7 +42,7 @@ def clean_text(text):
     return text
 
 
-loaded_model = joblib.load("model_10k_data.sav")
+loaded_model = joblib.load("model_29july2021latest1.sav")
 
 
 '''
@@ -87,8 +87,8 @@ df1["sentiment1"].replace({"positive": "1", "negative": "2","other": "3", "neutr
 print(df1.head())
 
 '''
-@app.route('/leadactivitysentiment', methods=['POST'])
 
+@app.route('/leadactivitysentiment', methods=['POST'])
 
 def leadactivitysentiment():
     try:
@@ -105,16 +105,16 @@ def leadactivitysentiment():
         test = test.dropna()
         test['sentiment1']=test["sentiment"]
         test["sentiment1"].replace({"positive": "1", "negative": "2","other": "3", "neutral": "4"}, inplace=True)
-        test = test[['RecNo','Comments','sentiment','sentiment1']]
+        test = test[['RecNo','LeadID','Assignedto','LeadStatus','Comments','sentiment','sentiment1']]
         orient="records"
         result = test.to_json(orient = orient)
         return(result)
         
         
     except:
-        return('Error')    
+        return('Error1')    
 
-
+'''
 if __name__ == '__main__':
     try:
         port = int(sys.argv[1]) 
@@ -122,3 +122,6 @@ if __name__ == '__main__':
         port = 3000
 
 app.run(port=port, debug=True)  
+'''
+if __name__ == '__main__':
+    app.run(host="localhost", port=3000, debug=True)
