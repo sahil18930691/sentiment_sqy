@@ -1,0 +1,10 @@
+.venv
+
+**__pycache__
+.DS_Store
+.pytest_cache
+Procfile
+.ipynb_checkpoints/
+*.ipynb
+x.py
+*.csv
