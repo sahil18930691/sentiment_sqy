@@ -42,7 +42,7 @@ def clean_text(text):
     return text
 
 
-loaded_model = joblib.load("model_29july2021latest1.sav")
+loaded_model = joblib.load("model_05aug2021latest1.sav")
 
 
 '''
