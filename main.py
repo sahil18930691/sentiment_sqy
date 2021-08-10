@@ -110,7 +110,6 @@ def leadactivitysentiment():
         result = test.to_json(orient = orient)
         return(result)
         
-    
     except:
         return('Error1')    
 
@@ -123,5 +122,5 @@ if __name__ == '__main__':
 
 app.run(port=port, debug=True)  
 '''
-if __name__ == '__main__':
+if __name__ == __main__:
     app.run(host="localhost", port=3000, debug=True)
