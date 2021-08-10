@@ -110,7 +110,7 @@ def leadactivitysentiment():
         result = test.to_json(orient = orient)
         return(result)
         
-        
+    
     except:
         return('Error1')    
 
