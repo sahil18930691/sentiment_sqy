@@ -9,10 +9,10 @@ import gunicorn
 
 app = Flask(__name__)
 
-@app.route('/', methods=['GET'])
+@app.route('/health', methods=['GET'])
 
 def root():
-    return "Hello World"
+    return "Server is up"
 
 '''
 def print_plot(index):
